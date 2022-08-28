@@ -5,11 +5,15 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import React from 'react';
 import logo from './assets/logo.svg';
 import CartWidget from '../CartWidget/CartWidget';
+import Form from 'react-bootstrap/Form';
+import { BsSearch } from 'react-icons/bs';
+import Button from 'react-bootstrap/Button';
 
 const NavBar = () => {
+
   return (
     <Navbar bg="dark" variant="dark">
-        <Container>
+        <Container className="d-flex justify-content-between">
           <Navbar.Brand href="#home">
             <img
               src={logo}
@@ -29,6 +33,15 @@ const NavBar = () => {
             </NavDropdown>
             <Nav.Link href="#about">About us</Nav.Link>
           </Nav>
+          <Form className='d-flex' style={{ width: '50%' }}>
+            <Form.Control
+              type="search"
+              placeholder="Search"
+              className="me-2"
+              aria-label="Search"
+            />
+            <Button variant="dark"><BsSearch /></Button>
+          </Form>
           <Nav>
             <CartWidget placement={'end'} />
           </Nav>
