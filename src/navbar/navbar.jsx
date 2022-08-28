@@ -3,8 +3,8 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import React from 'react';
-import ItemListContainer from '../ItemListContainer/ItemListContainer';
 import logo from './assets/logo.svg';
+import CartWidget from '../CartWidget/CartWidget';
 
 const NavBar = () => {
   return (
@@ -30,7 +30,7 @@ const NavBar = () => {
             <Nav.Link href="#about">About us</Nav.Link>
           </Nav>
           <Nav>
-            <ItemListContainer placement={'end'} />
+            <CartWidget placement={'end'} />
           </Nav>
         </Container>
     </Navbar>

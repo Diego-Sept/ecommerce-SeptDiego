@@ -1,31 +1,20 @@
-import Offcanvas from 'react-bootstrap/Offcanvas';
 import Button from 'react-bootstrap/Button';
-import React, { useState } from 'react';
-import { BsCart4 } from 'react-icons/bs';
+import Card from 'react-bootstrap/Card';
 
-const ItemListContainer = ({ ...props }) => {
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
-    return (
-        <>
-            <Button variant="dark" onClick={handleShow} className="me-2">
-                <h4><BsCart4 /></h4>
-                Show cart
-            </Button>
-            <Offcanvas show={show} onHide={handleClose} {...props}>
-                <Offcanvas.Header closeButton>
-                    <Offcanvas.Title>Your cart</Offcanvas.Title>
-                </Offcanvas.Header>
-                <Offcanvas.Body>
-                    Some text as placeholder. In real life you can have the elements you
-                    have chosen. Like, text, images, lists, etc.
-                </Offcanvas.Body>
-            </Offcanvas>
-        </>
-    );
+function ItemListContainer( {...props} ) {
+  return (
+    <Card style={{ width: '18rem' }}>
+      
+      <Card.Body>
+        <Card.Title>{props.title}</Card.Title>
+        <Card.Text>
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </Card.Text>
+        <Button variant="dark">{props.option}</Button>
+      </Card.Body>
+    </Card>
+  );
 }
 
 export default ItemListContainer;
