@@ -22,7 +22,8 @@ const CartWidget = ({ cart, ...props }) => {
                     <Offcanvas.Title>Your cart</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    {cart}
+                    Some text as placeholder. In real life you can have the elements you
+                    have chosen. Like, text, images, lists, etc.
                 </Offcanvas.Body>
             </Offcanvas>
         </>
