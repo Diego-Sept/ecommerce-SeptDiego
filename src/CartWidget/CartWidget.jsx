@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import React, { useState } from 'react';
 import { BsCart4 } from 'react-icons/bs';
 
-const CartWidget = ({ ...props }) => {
+const CartWidget = ({ cart, ...props }) => {
 
     const [show, setShow] = useState(false);
 
@@ -22,8 +22,7 @@ const CartWidget = ({ ...props }) => {
                     <Offcanvas.Title>Your cart</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    Some text as placeholder. In real life you can have the elements you
-                    have chosen. Like, text, images, lists, etc.
+                    {cart}
                 </Offcanvas.Body>
             </Offcanvas>
         </>

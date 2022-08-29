@@ -27,7 +27,7 @@ function App() {
   return (
 
     <div className="App">
-      <NavBar></NavBar>
+      <NavBar cart={cart}></NavBar>
       <header className="App-header p-4">
         <ItemListContainer products={products} />
       </header>

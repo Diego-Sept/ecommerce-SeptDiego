@@ -1,5 +1,5 @@
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import AddToCart from '../AddToCart/AddToCart';
 
 function Item ({product, ...props}) {
 
@@ -13,7 +13,7 @@ function Item ({product, ...props}) {
                         Stock: {product.available_quantity}<br />
                         Price: {product.price}
                     </Card.Text>
-                    <Button variant="dark">Agregar al carrito</Button>
+                    <AddToCart product={product}></AddToCart>
                 </Card.Body>
             </Card>
         </>

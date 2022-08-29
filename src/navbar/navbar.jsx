@@ -9,7 +9,7 @@ import Form from 'react-bootstrap/Form';
 import { BsSearch } from 'react-icons/bs';
 import Button from 'react-bootstrap/Button';
 
-const NavBar = () => {
+const NavBar = (cart, ...props) => {
 
   return (
     <Navbar bg="dark" variant="dark">
@@ -43,7 +43,7 @@ const NavBar = () => {
             <Button variant="dark"><BsSearch /></Button>
           </Form>
           <Nav>
-            <CartWidget placement={'end'} />
+            <CartWidget placement={'end'} cart={cart} />
           </Nav>
         </Container>
     </Navbar>
