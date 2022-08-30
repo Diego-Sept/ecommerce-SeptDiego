@@ -2,6 +2,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import Button from 'react-bootstrap/Button';
 import React, { useState } from 'react';
 import { BsCart4 } from 'react-icons/bs';
+//import Item from '../Item/Item';
 
 const CartWidget = ({ cart, ...props }) => {
 
@@ -10,7 +11,18 @@ const CartWidget = ({ cart, ...props }) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-
+    console.log(cart);
+                /* <div className="container">
+                <div className="row p-3 m-2">
+                    {cart.map((cartProduct) => {
+                        return (
+                            <div key={cartProduct.product.id} className="col-xs-1 col-lg-3 col-xl-4 p-2">
+                                <Item product={cartProduct.product} className="card-height"></Item>
+                            </div>
+                        )
+                    })}
+                </div>
+            </div> */
     return (
         <>
             <Button variant="dark" onClick={handleShow} className="me-2">
@@ -22,8 +34,7 @@ const CartWidget = ({ cart, ...props }) => {
                     <Offcanvas.Title>Your cart</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    Some text as placeholder. In real life you can have the elements you
-                    have chosen. Like, text, images, lists, etc.
+                    hola
                 </Offcanvas.Body>
             </Offcanvas>
         </>

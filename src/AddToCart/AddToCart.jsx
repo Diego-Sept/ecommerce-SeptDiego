@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { Container, Form } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
 import "./AddToCart.css"
 import { BsCart4, BsBagPlusFill, BsBagDashFill } from 'react-icons/bs';
@@ -7,39 +7,40 @@ import { BsCart4, BsBagPlusFill, BsBagDashFill } from 'react-icons/bs';
 
 function AddToCart({ product, ...props }) {
 
-    let [contador, setContador] = useState(0);
+    let [count, setCount] = useState(0);
+    let [cart, setCart] = useState([]);
 
     const substractItem = () => {
-        if (contador > 0) {
-            setContador(contador--);
+        if (count > 0) {
+            setCount(--count);
         }
     }
 
     function addItem() {
-        if (contador < product.available_quantity) {
-            setContador(contador++);
-            console.log(contador);
+        if (count < product.available_quantity) {
+            setCount(++count);
         }
     }
 
     const addOnCart = () => {
-
+        cart.push({product, quantity: count});
+        setCart(cart)
     }
 
     const disableBtnAdd = () => {
-        return (Number(contador) === Number(product.available_quantity)) ? true : false;
+        return (Number(count) === Number(product.available_quantity)) ? true : false;
     }
 
     const variantBtnAdd = () => {
-        return (Number(contador) === Number(product.available_quantity)) ? 'light' : 'success';
+        return (Number(count) === Number(product.available_quantity)) ? 'light' : 'success';
     }
 
     const disableBtnSubstract = () => {
-        return (Number(contador) === Number(0)) ? true : false;
+        return (Number(count) === Number(0)) ? true : false;
     }
 
     const variantBtnSubstract = () => {
-        return (Number(contador) === 0) ? 'light' : 'danger';
+        return (Number(count) === 0) ? 'light' : 'danger';
     }
 
     /*     const [cart, setCart] = useState([]);
@@ -51,20 +52,18 @@ function AddToCart({ product, ...props }) {
     return (
         <>
             <Container className="d-flex justify-content-between">
-                <Container className="d-flex justify-content-evenly">
-                    <Button variant={(Number(contador) === 0) ? 'light' : 'danger'} onClick={() => {substractItem()}}
-                        disabled={(Number(contador) === Number(0)) ? true : false}>
+                <Container className="d-flex justify-content-start">
+                    <Button variant={variantBtnSubstract()} onClick={() => {substractItem()}}
+                        disabled={disableBtnSubstract()}>
                         <BsBagDashFill />
                     </Button>
-                    <Form className="input-styles">
-                        <Form.Control type="number" value={Number(contador)} readOnly={true}></Form.Control>
-                    </Form>
-                    <Button variant={(Number(contador) === Number(product.available_quantity)) ? 'light' : 'success'} onClick={() => {addItem()}} 
-                        disabled={(Number(contador) === Number(product.available_quantity)) ? true : false}>
+                    <span className="input-styles p-1">{count}</span>
+                    <Button variant={variantBtnAdd()} onClick={() => {addItem()}} 
+                        disabled={disableBtnAdd()}>
                         <BsBagPlusFill />
                     </Button>
                 </Container>
-                <Button variant="primary" onClick={addOnCart()} disabled={contador === 0}><BsCart4 /></Button>
+                <Button variant="primary" onClick={() => {addOnCart()}} disabled={Number(count) === 0}><BsCart4 /></Button>
             </Container>
         </>
     );
