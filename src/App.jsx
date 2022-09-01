@@ -1,7 +1,7 @@
 import './App.css';
-import NavBar from './navbar/navbar';
+import NavBar from './Navbar/Navbar';
 import ItemListContainer from './ItemListContainer/ItemListContainer';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 function App() {
 
@@ -9,27 +9,12 @@ function App() {
   const [cart, setCart] = useState([]);
   const [products, setProducts] = useState([]);
 
-  const searchProducts = async () => {
-    try {
-      const response = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=placa de video`);
-      const data = await response.json();
-      setProducts(data.results);
-    } catch (e){ 
-      console.log(e)
-    }
-  }
-
-  useEffect(() => {
-    searchProducts();
-  }, [])
-
-
   return (
 
     <div className="App">
       <NavBar cart={cart}></NavBar>
       <header className="App-header p-4">
-        <ItemListContainer products={products} />
+        <ItemListContainer products={products} setProducts={setProducts} cart={cart} setCart={setCart} />
       </header>
     </div>
   );

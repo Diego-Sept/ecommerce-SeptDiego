@@ -5,10 +5,9 @@ import "./AddToCart.css"
 import { BsCart4, BsBagPlusFill, BsBagDashFill } from 'react-icons/bs';
 
 
-function AddToCart({ product, ...props }) {
+function AddToCart({ product, cart, setCart, ...props }) {
 
     let [count, setCount] = useState(0);
-    let [cart, setCart] = useState([]);
 
     const substractItem = () => {
         if (count > 0) {
@@ -23,8 +22,17 @@ function AddToCart({ product, ...props }) {
     }
 
     const addOnCart = () => {
-        cart.push({product, quantity: count});
-        setCart(cart)
+        let productOnCart= cart.find(prod => (prod?.product?.id === product.id) || (prod?.product?.product?.id === product.id));
+        if (!!productOnCart){
+            if ((Number(productOnCart.quantity) + Number(count)) <= Number(product.available_quantity)){
+                let index = cart.indexOf(productOnCart);
+                productOnCart.quantity = (Number(productOnCart.quantity) + Number(count));
+                cart[index] = productOnCart;
+                setCart([...cart])    
+            }
+        }else {
+            setCart([...cart, {...product, quantity: count}])
+        }
     }
 
     const disableBtnAdd = () => {

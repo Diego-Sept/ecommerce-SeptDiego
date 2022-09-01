@@ -2,6 +2,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import Button from 'react-bootstrap/Button';
 import React, { useState } from 'react';
 import { BsCart4 } from 'react-icons/bs';
+import ItemCartContainer from '../ItemCartContainer/ItemCartContainer';
 //import Item from '../Item/Item';
 
 const CartWidget = ({ cart, ...props }) => {
@@ -11,7 +12,6 @@ const CartWidget = ({ cart, ...props }) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    console.log(cart);
                 /* <div className="container">
                 <div className="row p-3 m-2">
                     {cart.map((cartProduct) => {
@@ -34,7 +34,7 @@ const CartWidget = ({ cart, ...props }) => {
                     <Offcanvas.Title>Your cart</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    hola
+                    <ItemCartContainer cart={cart}></ItemCartContainer>
                 </Offcanvas.Body>
             </Offcanvas>
         </>

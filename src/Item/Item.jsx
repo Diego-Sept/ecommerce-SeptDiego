@@ -1,7 +1,7 @@
 import Card from 'react-bootstrap/Card';
 import AddToCart from '../AddToCart/AddToCart';
 
-function Item ({product, ...props}) {
+function Item ({product, cart, setCart, ...props}) {
 
     return (
         <>
@@ -13,7 +13,7 @@ function Item ({product, ...props}) {
                         Stock: {product.available_quantity}<br />
                         Price: {product.price}
                     </Card.Text>
-                    <AddToCart product={product}></AddToCart>
+                    <AddToCart product={product} cart={cart} setCart={setCart}></AddToCart>
                 </Card.Body>
             </Card>
         </>

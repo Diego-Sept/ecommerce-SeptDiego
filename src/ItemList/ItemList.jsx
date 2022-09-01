@@ -1,7 +1,7 @@
 import Item from '../Item/Item';
 import "./ItemList.css"
 
-function ItemList({ products, ...props }) {
+function ItemList({ products, cart, setCart, ...props }) {
 
     return (
         <>
@@ -10,7 +10,7 @@ function ItemList({ products, ...props }) {
                     {products.map((product) => {
                         return (
                             <div key={product.id} className="col-xs-1 col-lg-3 col-xl-4 p-2">
-                                <Item product={product} className="card-height"></Item>
+                                <Item product={product} cart={cart} setCart={setCart} className="card-height"></Item>
                             </div>
                         )
                     })}

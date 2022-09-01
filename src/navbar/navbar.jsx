@@ -9,10 +9,10 @@ import Form from 'react-bootstrap/Form';
 import { BsSearch } from 'react-icons/bs';
 import Button from 'react-bootstrap/Button';
 
-const NavBar = (cart, ...props) => {
+const NavBar = ({cart, ...props}) => {
 
   return (
-    <Navbar bg="dark" variant="dark">
+    <Navbar bg="dark" variant="dark" key={false}>
         <Container className="d-flex justify-content-between">
           <Navbar.Brand href="#home">
             <img
