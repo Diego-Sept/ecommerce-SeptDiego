@@ -14,7 +14,7 @@ function App() {
     <div className="App">
       <NavBar cart={cart}></NavBar>
       <header className="App-header p-4">
-        <ItemListContainer products={products} setProducts={setProducts} cart={cart} setCart={setCart} />
+        <ItemDetailContainer products={products} setProducts={setProducts} cart={cart} setCart={setCart} />
       </header>
     </div>
   );
