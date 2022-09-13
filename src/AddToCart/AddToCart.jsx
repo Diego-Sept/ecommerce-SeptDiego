@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { Container } from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
 import "./AddToCart.css"
-import { BsCart4, BsBagPlusFill, BsBagDashFill } from 'react-icons/bs';
+import { BsCart4, BsSearch, BsBagPlusFill, BsBagDashFill } from 'react-icons/bs';
 
 
 function AddToCart({ product, cart, setCart, ...props }) {
@@ -51,12 +51,6 @@ function AddToCart({ product, cart, setCart, ...props }) {
         return (Number(count) === 0) ? 'light' : 'danger';
     }
 
-    /*     const [cart, setCart] = useState([]);
-    
-        const addItem = () => {
-            setCart([...cart, product]);
-        } */
-
     return (
         <>
             <Container className="d-flex justify-content-between">
@@ -71,6 +65,7 @@ function AddToCart({ product, cart, setCart, ...props }) {
                         <BsBagPlusFill />
                     </Button>
                 </Container>
+                <Button variant="primary" to={`/product/${product.id}`}><BsSearch /></Button>
                 <Button variant="primary" onClick={() => {addOnCart()}} disabled={Number(count) === 0}><BsCart4 /></Button>
             </Container>
         </>

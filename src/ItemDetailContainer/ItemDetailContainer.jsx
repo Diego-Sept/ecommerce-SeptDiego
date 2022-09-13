@@ -1,14 +1,19 @@
-import ItemList from '../ItemDetail/ItemDetail';
+import ItemDetail from '../ItemDetail/ItemDetail';
 import './ItemDetailContainer.css'
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
+import { useParams } from 'react-router-dom';
 
 function ItemDetailContainer( {products, setProducts, cart, setCart,...props} ) {
 
+  const idProducto = useParams();
+
+  let [product, setProduct] = useState();
+
   const searchProducts = async () => {
     try {
-      const response = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=placa de video`);
+      const response = await fetch(`https://api.mercadolibre.com/items/${idProducto}`);
       const data = await response.json();
-      setProducts(data.results);
+      setProduct(data);
     } catch (e){ 
       console.log(e)
     }
@@ -20,7 +25,7 @@ function ItemDetailContainer( {products, setProducts, cart, setCart,...props} ) 
 
   return (
     <>
-      <ItemDetail products={products} cart={cart} setCart={setCart}></ItemDetail>
+      <ItemDetail product={product} cart={cart} setCart={setCart}></ItemDetail>
     </>
   )
 

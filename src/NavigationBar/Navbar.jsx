@@ -8,6 +8,7 @@ import CartWidget from '../CartWidget/CartWidget';
 import Form from 'react-bootstrap/Form';
 import { BsSearch } from 'react-icons/bs';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 const NavBar = ({cart, ...props}) => {
 
@@ -25,11 +26,11 @@ const NavBar = ({cart, ...props}) => {
             Lorem ipsum
           </Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link to={'/'}>Home</Nav.Link>
             <NavDropdown title="Categories">
-              <NavDropdown.Item href="#mothers">Mothers</NavDropdown.Item>
-              <NavDropdown.Item href="#micros">Processors</NavDropdown.Item>
-              <NavDropdown.Item href="#power">Power supplies</NavDropdown.Item>
+              <NavDropdown.Item to={'/mothers'}>Mothers</NavDropdown.Item>
+              <NavDropdown.Item to="">Processors</NavDropdown.Item>
+              <NavDropdown.Item to="">Power supplies</NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href="#about">About us</Nav.Link>
           </Nav>
